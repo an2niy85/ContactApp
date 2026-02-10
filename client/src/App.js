@@ -1,4 +1,11 @@
 import './App.css';
+import TableContact from './layout/TableContact/TableContact';
+
+const contacts = [
+    {id:1, name:'Имя Фамилия 1', email: 'q1@e.rt'},
+    {id:2, name:'Имя Фамилия 2', email: 'q2@e.rt'},
+    {id:3, name:'Имя Фамилия 3', email: 'q3@e.rt'},
+];
 
 const App = () => {
   return (
@@ -8,32 +15,7 @@ const App = () => {
           <h1>Список контактов</h1>
         </div>
         <div className='card-body'>
-          <table className='table table-hover'>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Имя контакта</th>
-                <th>E-mail</th>                
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <th>Имя фамилия 1</th>
-                <th>example@email1.ru</th>
-              </tr>
-              <tr>
-                <th>2</th>
-                <th>Имя фамилия 2</th>
-                <th>example@email2.ru</th>
-              </tr>
-              <tr>
-                <th>3</th>
-                <th>Имя фамилия 3</th>
-                <th>example@email3.ru</th>
-              </tr>
-            </tbody>
-          </table>
+          <TableContact contacts={contacts}/>
         </div>
       </div>
     </div>
