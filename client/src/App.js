@@ -12,12 +12,14 @@ const App = () => {
   );
 
   const addContact = () => {
+    const newId = Math.max(...contacts.map(e => e.id)) + 1;
+
     const item = {
-      id:Math.floor(Math.random() * 100), 
+      id: newId, 
       name:'Имя Фамилия 3', 
       email: 'q3@e.rt'
     };
-    setContacts(...contacts, item);    
+    setContacts([...contacts, item]);    
   }
 
   return (
@@ -30,7 +32,7 @@ const App = () => {
           <TableContact contacts={contacts}/>
           <div>
             <button 
-              className='btn btn-primery'
+              className='btn btn-primary'
               onClick={()=>{addContact()}}
             >
               Добавить контакт
