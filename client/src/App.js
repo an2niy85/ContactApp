@@ -33,6 +33,14 @@ const App = () => {
   }
 
   const deleteContact = (id) => {
+    const url =`${baseApiUrl}/contacts/${id}`;
+    axios.delete(url)
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => {
+      console.error(err);
+    });
     setContacts(contacts.filter(item => item.id != id));
   }
 
