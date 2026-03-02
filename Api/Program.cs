@@ -11,7 +11,7 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 builder.Services.AddControllers();
-builder.Services.AddSingleton<ContactStorage>();
+builder.Services.AddSingleton<IStorage, SqliteStorage>();
 
 builder.Services.AddCors(
     opt => opt.AddPolicy("CorsPolicy", policy =>
@@ -26,6 +26,6 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.MapControllers();
 app.UseCors("CorsPolicy");
+app.MapControllers();
 app.Run();
