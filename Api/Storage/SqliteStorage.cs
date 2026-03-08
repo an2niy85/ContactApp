@@ -20,6 +20,16 @@ public class SqliteStorage : IStorage
         return commmand.ExecuteNonQuery() > 0;
     }
 
+    public Contact GetContactById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public int GetContactMaxId()
+    {
+        throw new NotImplementedException();
+    }
+
     public List<Contact> GetContacts()
     {
         var contact = new List<Contact>();

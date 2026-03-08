@@ -7,9 +7,11 @@ builder.Services.AddSwaggerGen(opt =>
 {
     opt.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "API спсика контактов",
+        Title = "API списка контактов",
     });
 });
+
+//builder.Services.AddScoped<InMemoryStorage>();
 builder.Services.AddControllers();
 builder.Services.AddSingleton<IStorage, SqliteStorage>();
 
