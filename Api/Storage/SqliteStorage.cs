@@ -11,11 +11,12 @@ public class SqliteStorage : IStorage
         connection.Open();
 
         var commmand = connection.CreateCommand();
-        string sql = new StringBuilder()
-        .Append("INSERT INTO contacts(name, email) VALUES")
-        .Append($"('{contact.Name}','{contact.Email}');").ToString();
 
+        string sql = "INSERT INTO contacts(name, email) VALUES (@name, @email);";
         commmand.CommandText = sql;
+        commmand.Parameters.AddWithValue("@name", contact.Name);
+        commmand.Parameters.AddWithValue("@email", contact.Email);
+
         Console.WriteLine("sql >> " + sql);
         return commmand.ExecuteNonQuery() > 0;
     }
